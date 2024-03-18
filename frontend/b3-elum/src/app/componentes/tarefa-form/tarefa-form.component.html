@@ -1,0 +1,59 @@
+
+<mat-card>
+<h1>{{btnTitulo}}</h1>
+
+<form [formGroup]="tarefaForm" (ngSubmit)="submit()" #formDit="ngForm">
+    <input type="hidden" formControlName="id">
+
+    <div class="input-box">
+        <mat-form-field>
+            <mat-label  for="">Descrição</mat-label>
+            <input matInput type="text" formControlName="descricao" placeholder="Descrição atividade" required>
+        </mat-form-field>
+    </div>
+
+    <div class="input-box">
+        <mat-form-field>
+            <mat-label  for="">Responsavel</mat-label>
+            <input matInput type="text" formControlName="responsavel" placeholder="Responsavel atividade" required>
+        </mat-form-field>
+    </div>
+
+    <div class="input-box">
+        <mat-form-field>
+            <mat-label  for="">Celular</mat-label>
+            <input matInput type="text" formControlName="celular" placeholder="Celular Responsavel" required>
+        </mat-form-field>
+    </div>
+
+    <div class="input-box">
+        <mat-form-field>
+            <mat-label  for="">Cpf</mat-label>
+            <input matInput type="text" formControlName="cpf" placeholder="Cpf Candidato" required>
+        </mat-form-field>
+    </div>
+
+    
+
+    <div class="input-box">
+        <mat-form-field>
+            <mat-label for="">Data</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="data" placeholder="data atividade" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div class="input-box">
+    <label>
+        Ativo:
+        <input type="checkbox" formControlName="status" id="ativo" name="ativo" >
+      </label>
+    </div>
+       
+    <div class="btn-box">   
+        <button mat-raised-button type="submit" [disabled]="!tarefaForm.valid"  color="primary">{{btnAcao}}</button>
+        <button routerLink="" mat-stroked-button color="warn">Voltar</button>
+    </div>
+</form>
+</mat-card>
